@@ -1,2 +1,2 @@
 # Royal-Game-of-Ur
-Unity 2D Board Game for android device
+Unity 2D Board Game for android devices
