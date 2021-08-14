@@ -9,6 +9,7 @@ public class DiceRoll : MonoBehaviour
 
     private int[] diceValues = new int[4];
     private int result = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,12 @@ public class DiceRoll : MonoBehaviour
 
     public void OnRollDice()
     {
-        if (!shouldRoll())
+        if (!canRoll())
+        {
+            Debug.LogWarning("Cannot Roll Dice, because dice is already rolling");
             return;
+        }
+           
 
         result = 0;
         for (int i = 0; i < diceValues.Length; ++i)
@@ -37,8 +42,16 @@ public class DiceRoll : MonoBehaviour
         Debug.LogFormat("Dice Roll Result: {1} [{0}]", string.Join(", ", diceValues), result);
     }
 
-    private bool shouldRoll()
+    public bool canRoll()
     {
+        foreach (Dice dice in dices)
+        {
+            if (dice.IsRolling())
+            {
+                return false;
+            }
+               
+        }
         return true;
     }
 }
