@@ -2,36 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Piece : MonoBehaviour
+public class Piece : TouchObj
 {
-
-    private Collider2D col;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        col = GetComponent<Collider2D>();
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-        if (IsTouched())
-        {
-            // tell manager that player clicked this piece
-            Debug.Log("YAY");
-        }
+        base.Update();
     }
 
-    private bool IsTouched()
+    protected override void onTouched()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Vector3 touchPosRaw = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-            Vector2 touchPos =  new Vector2(touchPosRaw.x, touchPosRaw.y);
-
-            return col == Physics2D.OverlapPoint(touchPos);
-
-        }
-        return false;
     }
 }

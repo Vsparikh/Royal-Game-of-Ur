@@ -31,4 +31,20 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void OnTileTouched(TileInfo info)
+    {
+
+    }
+
+    public void OnPieceTouched(Piece piece)
+    {
+
+    }
+
+    public void OnTileTouched(Tile tile)
+    {
+
+    }
+
 }

@@ -29,7 +29,6 @@ public class DiceRoll : MonoBehaviour
             Debug.LogWarning("Cannot Roll Dice, because dice is already rolling");
             return;
         }
-           
 
         result = 0;
         for (int i = 0; i < diceValues.Length; ++i)
